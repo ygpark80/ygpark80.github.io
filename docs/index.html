@@ -1,0 +1,38 @@
+<html>
+
+<head>
+    <title>몇월 몇주?</title>
+    <script src="https://unpkg.com/dayjs"></script>
+    <script src="https://unpkg.com/dayjs-plugin-monthweek@0.0.4/dist/umd/index.js"></script>
+    <script src="https://unpkg.com/jquery"></script>
+    <script>
+        dayjs.extend(monthWeek.default)
+        const monthweek = dayjs().monthWeek()
+        $(document).ready(function () {
+            $("#year").text(monthweek.year)
+            $("#month").text(monthweek.month + 1)
+            $("#week").text(monthweek.week)
+        })
+    </script>
+    <style>
+        .container {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            -moz-transform: translateX(-50%) translateY(-50%);
+            -webkit-transform: translateX(-50%) translateY(-50%);
+            transform: translateX(-50%) translateY(-50%);
+        }
+        .container div { text-align: center;}
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div>오늘은</div>
+        <div style="font-weight: bold;"><span id="year"></span>년 <span id="month"></span>월 <span
+                id="week"></span>주</div>
+    </div>
+</body>
+
+</html>
